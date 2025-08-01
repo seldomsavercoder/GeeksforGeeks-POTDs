@@ -1,0 +1,18 @@
+class Solution:
+    def countBalanced(self, arr):
+        # code here
+        n =len(arr)
+        count = 0
+        vowels = set('aeiou')
+        
+        for i in range(n) :
+            com = ''
+            for j in range(i,n) :
+                com += arr[j]
+                
+                v = sum(1 for ch in com if ch in vowels)
+                c = len(com) - v
+                if (v == c) :
+                    count += 1
+
+        return count
