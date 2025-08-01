@@ -1,0 +1,22 @@
+class Solution:
+    def countBalanced(self, arr):
+        from collections import defaultdict
+        
+        count = 0
+        vowels = set('aeiou')
+        bal = 0
+        balmap = defaultdict(int)
+        
+        balmap[0] = 1  # balance = 0 is initially seen once
+        
+        for i in arr:
+            v = sum(1 for ch in i if ch in vowels)
+            c = len(i) - v 
+            diff = v - c
+            
+            bal += diff
+            count += balmap[bal]
+            balmap[bal] += 1
+
+
+        return count
