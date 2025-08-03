@@ -1,0 +1,14 @@
+class Solution:
+    def applyDiff2D(self, mat, opr):
+        # code here 
+        
+        n = len(mat)
+        m = len(mat[0])
+
+        for op in opr:
+            v, r1, c1, r2, c2 = op
+            for i in range(r1, r2 + 1):
+                for j in range(c1, c2 + 1):
+                    mat[i][j] += v
+                    
+        return mat
